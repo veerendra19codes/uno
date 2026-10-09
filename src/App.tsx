@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { io } from "socket.io-client";
 import { ArrowDown, ArrowLeft, ArrowRight, Check, Copy, Crown, LoaderCircle, LogOut, RotateCcw, Sparkles, Users, Wifi, WifiOff } from "lucide-react";
+import { Analytics } from "@vercel/analytics/react";
 import { CARD_COLORS, type ActionResult, type Card, type CardColor, type GameState } from "./game";
 
 const socket = io(import.meta.env.VITE_SERVER_URL || undefined, { autoConnect: false });
@@ -195,6 +196,7 @@ function App() {
       )}
 
       <footer className="footer"><span>GOOD GAMES. GOOD COMPANY.</span><span>Uno Online <span className="footer-dot">·</span> Private rooms</span></footer>
+      <Analytics />
     </main>
   );
 }
